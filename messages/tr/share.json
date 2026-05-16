@@ -202,6 +202,11 @@
     "summary": "Yükleme / PWA",
     "body": "Bu sayfa tam çevrimdışı PWA olarak kurulmadı; çevrimdışı iken sekme açma ve üçüncü taraf siteler çalışmayabilir."
   },
+  "installHint": {
+    "ios": "iPhone: Paylaş → Ana Ekrana Ekle ile uygulama gibi açın.",
+    "android": "Android: Menü → Ana ekrana ekle veya yükle bildirimi.",
+    "dismiss": "Tamam"
+  },
   "page": {
     "metaTitle": "Paylaşım merkezi — Vanguard",
     "metaDescription": "Metin tarayıcıda birleştirilir; pano ve sekme akışı şeffaf. Instagram, WhatsApp, YouTube ve daha fazlası.",

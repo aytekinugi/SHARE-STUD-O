@@ -14,6 +14,8 @@
     "check:budget": "node scripts/check-bundle-budget.mjs",
     "db:migrate:share": "node scripts/apply-share-migration.mjs",
     "vercel:env:sync": "node scripts/sync-vercel-env.mjs",
+    "setup:phone": "node scripts/setup-phone-test.mjs",
+    "provision:supabase": "node scripts/provision-supabase.mjs",
     "format": "prettier --write ."
   },
   "dependencies": {

@@ -14,7 +14,7 @@ export function SharePageNav() {
   const sc = getShareMessages(locale);
 
   return (
-    <nav className="sticky top-0 z-20 border-b border-white/10 bg-black/70 px-4 py-4 backdrop-blur-xl sm:px-6">
+    <nav className="sticky top-0 z-20 border-b border-white/10 bg-black/70 px-4 pb-4 pt-[max(1rem,env(safe-area-inset-top))] backdrop-blur-xl sm:px-6">
       <div className="mx-auto flex max-w-4xl items-center justify-between">
         <Link href="/">
           <Button variant="ghost" size="sm" className="gap-2 rounded-full">

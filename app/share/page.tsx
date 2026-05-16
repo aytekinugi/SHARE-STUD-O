@@ -5,6 +5,7 @@ import shareEn from "@/messages/en/share.json";
 import { ShareSentryInit } from "@/components/share/share-sentry-init";
 import { SharePwaRegister } from "@/components/share/share-pwa-register";
 import { SharePageNav } from "@/components/share/share-page-nav";
+import { ShareInstallHint } from "@/components/share/share-install-hint";
 
 export const metadata: Metadata = {
   title: `${shareTr.page.metaTitle} · ${shareEn.page.metaTitle}`,
@@ -28,6 +29,9 @@ export default function SharePage() {
       <ShareSentryInit />
       <SharePwaRegister />
       <SharePageNav />
+      <div className="mx-auto max-w-4xl px-4 sm:px-6">
+        <ShareInstallHint />
+      </div>
       <ShareStudio />
     </>
   );

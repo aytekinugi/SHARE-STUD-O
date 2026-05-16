@@ -202,6 +202,11 @@
     "summary": "Install / PWA",
     "body": "This page is not installed as a full offline PWA; opening tabs and third-party sites may not work while offline."
   },
+  "installHint": {
+    "ios": "iPhone: Share → Add to Home Screen to open like an app.",
+    "android": "Android: Menu → Install app or Add to Home screen.",
+    "dismiss": "OK"
+  },
   "page": {
     "metaTitle": "Share hub — Vanguard",
     "metaDescription": "Text is merged in-browser; clipboard and tab flow are transparent. Instagram, WhatsApp, YouTube and more.",

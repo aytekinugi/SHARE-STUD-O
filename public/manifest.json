@@ -1,15 +1,25 @@
 {
-  "name": "Vanguard AI",
-  "short_name": "Vanguard",
-  "start_url": "/dashboard",
+  "name": "Share Stud O",
+  "short_name": "Share",
+  "description": "Multi-channel share studio for quests and campaigns",
+  "start_url": "/share",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "portrait-primary",
   "background_color": "#050505",
   "theme_color": "#050505",
   "icons": [
     {
       "src": "/favicon.svg",
       "sizes": "any",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
     }
   ],
   "shortcuts": [
