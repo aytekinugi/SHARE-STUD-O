@@ -33,7 +33,8 @@ if (!url) {
 
 const files = [
   path.join(process.cwd(), "supabase/schema.sql"),
-  path.join(process.cwd(), "supabase/migrations/20260516120000_share_studio_extras.sql")
+  path.join(process.cwd(), "supabase/migrations/20260516120000_share_studio_extras.sql"),
+  path.join(process.cwd(), "supabase/migrations/20260516140000_postpilot_posts.sql")
 ];
 
 const ref = (process.env.NEXT_PUBLIC_SUPABASE_URL || "").match(/https:\/\/([^.]+)/)?.[1];
