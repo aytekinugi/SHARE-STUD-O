@@ -1,15 +1,15 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase-server";
+import { createApiSupabase, getApiUser } from "@/lib/supabase-api";
 import { checkRateLimit, rateLimitKey } from "@/lib/rate-limit";
 import { parseShareExportPackZod } from "@/lib/share-export-schema";
 import { limitsForPlan } from "@/lib/share-premium";
 import { getSharePlanForUser } from "@/lib/share-plan-server";
 
-export async function GET() {
-  const supabase = createClient();
+export async function GET(req: Request) {
+  const supabase = createApiSupabase(req);
   const {
     data: { user }
-  } = await supabase.auth.getUser();
+  } = await getApiUser(supabase, req);
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const { data, error } = await supabase
@@ -24,10 +24,10 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
-  const supabase = createClient();
+  const supabase = createApiSupabase(req);
   const {
     data: { user }
-  } = await supabase.auth.getUser();
+  } = await getApiUser(supabase, req);
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const rl = checkRateLimit(`tpl:${rateLimitKey(req, user.id)}`, 40, 60_000);
@@ -64,10 +64,10 @@ export async function POST(req: Request) {
 }
 
 export async function DELETE(req: Request) {
-  const supabase = createClient();
+  const supabase = createApiSupabase(req);
   const {
     data: { user }
-  } = await supabase.auth.getUser();
+  } = await getApiUser(supabase, req);
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const { searchParams } = new URL(req.url);

@@ -17,7 +17,9 @@ function enc(s: string) {
 }
 
 export function twitterIntent(p: SharePayload) {
-  return `https://twitter.com/intent/tweet?text=${enc(composeShareBody(p))}`;
+  const body = composeShareBody(p);
+  const text = body.length > 280 ? `${body.slice(0, 279)}…` : body;
+  return `https://twitter.com/intent/tweet?text=${enc(text)}`;
 }
 
 export function facebookMarketplaceNewListing(): string {
@@ -76,7 +78,9 @@ export function lineShare(url: string) {
 }
 
 export function hackerNewsSubmit(url: string, title: string) {
-  return `https://news.ycombinator.com/submitlink?u=${enc(url)}&t=${enc(title.trim() || url)}`;
+  const raw = (title.trim() || url).trim();
+  const t = raw.length > 80 ? raw.slice(0, 80) : raw;
+  return `https://news.ycombinator.com/submitlink?u=${enc(url)}&t=${enc(t)}`;
 }
 
 export function emailShare(p: SharePayload) {

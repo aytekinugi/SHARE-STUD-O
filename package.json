@@ -16,6 +16,7 @@
     "vercel:env:sync": "node scripts/sync-vercel-env.mjs",
     "setup:phone": "node scripts/setup-phone-test.mjs",
     "provision:supabase": "node scripts/provision-supabase.mjs",
+    "supabase:diagnose": "node scripts/supabase-diagnose.mjs",
     "format": "prettier --write ."
   },
   "dependencies": {

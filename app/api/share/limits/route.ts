@@ -1,19 +1,19 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase-server";
+import { createApiSupabase, getApiUser } from "@/lib/supabase-api";
 import { limitsForPlan } from "@/lib/share-premium";
 import { getSharePlanForUser } from "@/lib/share-plan-server";
 
-export async function GET() {
+export async function GET(req: Request) {
   let supabase;
   try {
-    supabase = createClient();
+    supabase = createApiSupabase(req);
   } catch {
     return NextResponse.json({ error: "Supabase not configured" }, { status: 503 });
   }
 
   const {
     data: { user }
-  } = await supabase.auth.getUser();
+  } = await getApiUser(supabase, req);
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const plan = await getSharePlanForUser(supabase, user.id);

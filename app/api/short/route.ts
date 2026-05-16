@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase-server";
+import { createApiSupabase, getApiUser } from "@/lib/supabase-api";
 import { supabaseAdmin } from "@/lib/supabase-admin";
 import { checkRateLimit, rateLimitKey } from "@/lib/rate-limit";
 import { limitsForPlan } from "@/lib/share-premium";
@@ -14,14 +14,14 @@ function makeId(): string {
 export async function GET(req: Request) {
   let supabase;
   try {
-    supabase = createClient();
+    supabase = createApiSupabase(req);
   } catch {
     return NextResponse.json({ error: "Supabase not configured" }, { status: 503 });
   }
 
   const {
     data: { user }
-  } = await supabase.auth.getUser();
+  } = await getApiUser(supabase, req);
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const { data, error } = await supabase
@@ -39,14 +39,14 @@ export async function GET(req: Request) {
 export async function POST(req: Request) {
   let supabase;
   try {
-    supabase = createClient();
+    supabase = createApiSupabase(req);
   } catch {
     return NextResponse.json({ error: "Supabase not configured" }, { status: 503 });
   }
 
   const {
     data: { user }
-  } = await supabase.auth.getUser();
+  } = await getApiUser(supabase, req);
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const rl = checkRateLimit(`short:${rateLimitKey(req, user.id)}`, 30, 60_000);

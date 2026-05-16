@@ -1,18 +1,18 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { createClient } from "@/lib/supabase-server";
+import { createApiSupabase, getApiUser } from "@/lib/supabase-api";
 
-export async function GET() {
+export async function GET(req: Request) {
   let supabase;
   try {
-    supabase = createClient();
+    supabase = createApiSupabase(req);
   } catch {
     return NextResponse.json({ error: "Server misconfigured." }, { status: 500 });
   }
 
   const {
     data: { user }
-  } = await supabase.auth.getUser();
+  } = await getApiUser(supabase, req);
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const { data: member } = await supabase
@@ -48,14 +48,14 @@ export async function GET() {
 export async function POST(req: Request) {
   let supabase;
   try {
-    supabase = createClient();
+    supabase = createApiSupabase(req);
   } catch {
     return NextResponse.json({ error: "Server misconfigured." }, { status: 500 });
   }
 
   const {
     data: { user }
-  } = await supabase.auth.getUser();
+  } = await getApiUser(supabase, req);
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   let raw: unknown;

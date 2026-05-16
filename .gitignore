@@ -11,6 +11,8 @@ out/
 .env.development.local
 .env.test.local
 .env.production.local
+.env.production
+.env.pulled
 .env.vercel.tmp
 .env.vercel.*
 
@@ -39,3 +41,4 @@ test-results/
 
 # Supabase CLI
 supabase/.temp/
+.env*.local

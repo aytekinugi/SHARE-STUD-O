@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase-server";
+import { createApiSupabase, getApiUser } from "@/lib/supabase-api";
 import { checkRateLimit, rateLimitKey } from "@/lib/rate-limit";
 import { suggestHashtagsForQuest } from "@/lib/share-quest-hashtags";
 import type { StatCategory } from "@/lib/types";
@@ -8,14 +8,14 @@ import type { StatCategory } from "@/lib/types";
 export async function GET(req: Request) {
   let supabase;
   try {
-    supabase = createClient();
+    supabase = createApiSupabase(req);
   } catch {
     return NextResponse.json({ error: "Supabase not configured" }, { status: 503 });
   }
 
   const {
     data: { user }
-  } = await supabase.auth.getUser();
+  } = await getApiUser(supabase, req);
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const rl = checkRateLimit(`campaign:${rateLimitKey(req, user.id)}`, 60, 60_000);
