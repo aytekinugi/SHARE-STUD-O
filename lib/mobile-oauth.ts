@@ -53,10 +53,60 @@ export async function exchangeMetaCode(
       metadata.page_id = first.id;
       metadata.page_name = first.name;
       accessToken = first.access_token;
+
+      const igUrl = new URL(`https://graph.facebook.com/v21.0/${first.id}`);
+      igUrl.searchParams.set("fields", "instagram_business_account");
+      igUrl.searchParams.set("access_token", accessToken);
+      const igRes = await fetch(igUrl.toString());
+      if (igRes.ok) {
+        const igJson = (await igRes.json()) as {
+          instagram_business_account?: { id?: string };
+        };
+        const igId = igJson.instagram_business_account?.id;
+        if (igId) metadata.instagram_business_id = igId;
+      }
     }
   }
 
   return { access_token: accessToken, metadata };
+}
+
+export async function exchangeTikTokCode(
+  code: string,
+  redirectUri: string
+): Promise<{ access_token: string; metadata: Record<string, unknown> } | null> {
+  const clientKey = process.env.TIKTOK_CLIENT_KEY?.trim();
+  const clientSecret = process.env.TIKTOK_CLIENT_SECRET?.trim();
+  if (!clientKey || !clientSecret) return null;
+
+  const body = new URLSearchParams({
+    client_key: clientKey,
+    client_secret: clientSecret,
+    code,
+    grant_type: "authorization_code",
+    redirect_uri: redirectUri
+  });
+
+  const res = await fetch("https://open.tiktokapis.com/v2/oauth/token/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body
+  });
+  if (!res.ok) return null;
+  const json = (await res.json()) as {
+    access_token?: string;
+    open_id?: string;
+    refresh_token?: string;
+  };
+  if (!json.access_token) return null;
+
+  return {
+    access_token: json.access_token,
+    metadata: {
+      open_id: json.open_id,
+      refresh_token: json.refresh_token
+    }
+  };
 }
 
 export async function exchangeLinkedInCode(
