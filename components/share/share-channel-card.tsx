@@ -30,7 +30,12 @@ type Props = {
   onDragStart: () => void;
   onDragEnd: () => void;
   onDrop: () => void;
+  onChannelOpen?: (channelId: string) => void;
 };
+
+function openChannel(href: string, channelId: string, onChannelOpen?: (id: string) => void) {
+  if (openShareExternal(href)) onChannelOpen?.(channelId);
+}
 
 export function ShareChannelCard({
   ch,
@@ -44,7 +49,8 @@ export function ShareChannelCard({
   onCopy,
   onDragStart,
   onDragEnd,
-  onDrop
+  onDrop,
+  onChannelOpen
 }: Props) {
   const Icon = ch.icon;
 
@@ -117,27 +123,32 @@ export function ShareChannelCard({
               </Button>
             )}
             {ch.id === "ig" && (
-              <Button type="button" size="sm" className="rounded-xl" onClick={() => openShareExternal(instagramAppEntry())}>
+              <Button type="button" size="sm" className="rounded-xl" onClick={() => openChannel(instagramAppEntry(), ch.id, onChannelOpen)}>
                 {sc.cardActions.instagram}
               </Button>
             )}
             {ch.id === "wa" && (
-              <Button type="button" size="sm" className="rounded-xl" onClick={() => openShareExternal(whatsappSend(richPayload))}>
+              <Button type="button" size="sm" className="rounded-xl" onClick={() => openChannel(whatsappSend(richPayload), ch.id, onChannelOpen)}>
                 {sc.cardActions.whatsappChat}
               </Button>
             )}
             {ch.id === "yt" && (
-              <Button type="button" size="sm" className="rounded-xl" onClick={() => openShareExternal(youtubeUploadPage())}>
+              <Button type="button" size="sm" className="rounded-xl" onClick={() => openChannel(youtubeUploadPage(), ch.id, onChannelOpen)}>
                 {sc.cardActions.youtubeUpload}
               </Button>
             )}
             {ch.id === "fb-mp" && (
-              <Button type="button" size="sm" className="rounded-xl" onClick={() => openShareExternal(facebookMarketplaceNewListing())}>
+              <Button type="button" size="sm" className="rounded-xl" onClick={() => openChannel(facebookMarketplaceNewListing(), ch.id, onChannelOpen)}>
                 {sc.cardActions.marketplaceNew}
               </Button>
             )}
             {ch.id === "li" && (
-              <Button type="button" size="sm" className="rounded-xl" onClick={() => openShareExternal(linkedInShare(richPayload.url))}>
+              <Button
+                type="button"
+                size="sm"
+                className="rounded-xl"
+                onClick={() => openChannel(linkedInShare(richPayload.url), ch.id, onChannelOpen)}
+              >
                 {sc.cardActions.linkedinShare}
               </Button>
             )}
@@ -152,7 +163,7 @@ export function ShareChannelCard({
                     pinterestMedia: pinterestMedia.trim() || undefined,
                     mastodonHost: normalizeMastodonHost(mastodonHost)
                   })[0];
-                  if (href) openShareExternal(href);
+                  if (href) openChannel(href, ch.id, onChannelOpen);
                 }}
               >
                 {sc.cardActions.open}

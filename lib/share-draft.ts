@@ -2,6 +2,8 @@ import { ALL_CHANNEL_IDS, DEFAULT_SELECTED } from "@/components/share/share-chan
 import { DEFAULT_CHANNEL_ORDER, SHARE_CHANNEL_ORDER_KEY } from "@/lib/share-channel-order";
 import { BATCH_PREVIEW_SKIP_KEY } from "@/hooks/use-share-batch";
 import { SHARE_LOCALE_KEY, SHARE_SELECTED_IDS_KEY } from "@/lib/share-i18n";
+import { clearChannelOpens } from "@/lib/share-channel-opens";
+import { parseShareExportPackZod } from "@/lib/share-export-schema";
 
 export const SHARE_DRAFT_KEY = "vanguard-share-draft";
 
@@ -9,12 +11,17 @@ export type ShareDraftV1 = {
   v: 1;
   title: string;
   text: string;
+  textB?: string;
+  activeVariant?: "a" | "b";
   url: string;
   hashtags: string;
   cta: string;
   warmClose: boolean;
   mastodonHost: string;
   pinterestMedia: string;
+  utmSource?: string;
+  utmMedium?: string;
+  utmCampaign?: string;
   selectedIds: string[];
   channelOrder: string[];
 };
@@ -47,12 +54,18 @@ export function clearAllShareStorage(): void {
   window.localStorage.removeItem(SHARE_DRAFT_KEY);
   window.localStorage.removeItem(SHARE_SELECTED_IDS_KEY);
   window.localStorage.removeItem(SHARE_CHANNEL_ORDER_KEY);
+  clearChannelOpens();
   if (typeof sessionStorage !== "undefined") sessionStorage.removeItem(BATCH_PREVIEW_SKIP_KEY);
 }
 
 export function parseShareExportPack(json: string): ShareExportPack | null {
   try {
-    const p = JSON.parse(json) as ShareExportPack;
+    const raw = JSON.parse(json) as unknown;
+    const zod = parseShareExportPackZod(raw);
+    if (zod) {
+      return { ...zod, exportedAt: zod.exportedAt ?? new Date().toISOString() };
+    }
+    const p = raw as ShareExportPack;
     if (p?.v !== 1) return null;
     const valid = new Set(ALL_CHANNEL_IDS);
     const selectedIds = (p.selectedIds ?? []).filter((id) => valid.has(id));
@@ -64,12 +77,17 @@ export function parseShareExportPack(json: string): ShareExportPack | null {
       v: 1,
       title: String(p.title ?? ""),
       text: String(p.text ?? ""),
+      textB: p.textB ? String(p.textB) : undefined,
+      activeVariant: p.activeVariant === "b" ? "b" : "a",
       url: String(p.url ?? ""),
       hashtags: String(p.hashtags ?? ""),
       cta: String(p.cta ?? ""),
       warmClose: p.warmClose !== false,
       mastodonHost: String(p.mastodonHost ?? "mastodon.social"),
       pinterestMedia: String(p.pinterestMedia ?? ""),
+      utmSource: p.utmSource,
+      utmMedium: p.utmMedium,
+      utmCampaign: p.utmCampaign,
       selectedIds: selectedIds.length > 0 ? selectedIds : [...DEFAULT_SELECTED],
       channelOrder,
       exportedAt: p.exportedAt ?? new Date().toISOString()

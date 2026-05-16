@@ -15,9 +15,15 @@ export function ShareSentryInit() {
     void import("@sentry/browser")
       .then((Sentry) => {
         if (cancelled) return;
+        const release =
+          process.env.NEXT_PUBLIC_SENTRY_RELEASE?.trim() ||
+          process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA?.trim() ||
+          undefined;
+
         Sentry.init({
           dsn,
           environment: process.env.NODE_ENV,
+          release,
           tracesSampleRate: 0,
           replaysSessionSampleRate: 0,
           replaysOnErrorSampleRate: 0,

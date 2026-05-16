@@ -26,6 +26,7 @@ type Props = {
   setRememberSkipPreview: (v: boolean) => void;
   assembledLength: number;
   channelOrder: string[];
+  batchMaxTabs?: number;
   onSubmit: (openN: number, copyRemainder: boolean, rememberSkip: boolean) => void;
   onClose: () => void;
 };
@@ -45,10 +46,12 @@ export function ShareBatchDialog({
   setRememberSkipPreview,
   assembledLength,
   channelOrder,
+  batchMaxTabs = 5,
   onSubmit,
   onClose
 }: Props) {
-  const openN = clampOpenTabCount(dlgOpenTabCount, Math.max(dlgUrlTotal, 1));
+  const tabCap = Math.min(batchMaxTabs, Math.max(dlgUrlTotal, 1));
+  const openN = clampOpenTabCount(dlgOpenTabCount, tabCap);
   const simHosts = firstTabHostnames(dlgPreviewUrls.slice(0, openN), 5);
 
   const focusableSelector =
@@ -99,7 +102,7 @@ export function ShareBatchDialog({
         className="flex max-h-[inherit] flex-col gap-4 overflow-y-auto p-5 pt-6"
         onSubmit={(e) => {
           e.preventDefault();
-          const n = clampOpenTabCount(dlgOpenTabCount, Math.max(dlgUrlTotal, 1));
+          const n = clampOpenTabCount(dlgOpenTabCount, tabCap);
           const remainder = dlgUrlTotal > n;
           onSubmit(n, dlgCopyRemain && remainder, rememberSkipPreview);
         }}
@@ -157,11 +160,11 @@ export function ShareBatchDialog({
             id="share-open-tabs"
             type="number"
             min={1}
-            max={Math.max(1, dlgUrlTotal)}
+            max={tabCap}
             value={dlgOpenTabCount}
             onChange={(e) => {
               const v = parseInt(e.target.value, 10);
-              setDlgOpenTabCount(clampOpenTabCount(Number.isFinite(v) ? v : 1, Math.max(dlgUrlTotal, 1)));
+              setDlgOpenTabCount(clampOpenTabCount(Number.isFinite(v) ? v : 1, tabCap));
             }}
             className="rounded-xl font-mono text-sm"
           />

@@ -11,7 +11,12 @@ import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import type { ChannelLimitWarning } from "@/lib/share-channel-limits";
 import { interpolateShare } from "@/lib/share-template";
+import type { ChannelSnippet } from "@/lib/share-channel-snippets";
 import type { ShareMessages } from "@/lib/share-trust-copy";
+import { ShareChannelPreviews } from "@/components/share/share-channel-previews";
+import { ShareUtmPanel } from "@/components/share/share-utm-panel";
+import { ShareAbPanel } from "@/components/share/share-ab-panel";
+import { ShareSocialPreview } from "@/components/share/share-social-preview";
 
 type Props = {
   sc: ShareMessages;
@@ -31,6 +36,18 @@ type Props = {
   setWarmClose: (v: boolean) => void;
   assembled: string;
   limitWarnings: ChannelLimitWarning[];
+  channelSnippets: ChannelSnippet[];
+  textB: string;
+  setTextB: (v: string) => void;
+  activeVariant: "a" | "b";
+  setActiveVariant: (v: "a" | "b") => void;
+  utmSource: string;
+  setUtmSource: (v: string) => void;
+  utmMedium: string;
+  setUtmMedium: (v: string) => void;
+  utmCampaign: string;
+  setUtmCampaign: (v: string) => void;
+  onApplyUtmDefaults: () => void;
   onVerifyClipboard: () => void;
 };
 
@@ -52,6 +69,18 @@ export function ShareStudioForm({
   setWarmClose,
   assembled,
   limitWarnings,
+  channelSnippets,
+  textB,
+  setTextB,
+  activeVariant,
+  setActiveVariant,
+  utmSource,
+  setUtmSource,
+  utmMedium,
+  setUtmMedium,
+  utmCampaign,
+  setUtmCampaign,
+  onApplyUtmDefaults,
   onVerifyClipboard
 }: Props) {
   const prefersReducedMotion = useReducedMotion();
@@ -137,6 +166,47 @@ export function ShareStudioForm({
           </div>
         </Card>
 
+        <ShareUtmPanel
+          sc={sc}
+          utmSource={utmSource}
+          setUtmSource={setUtmSource}
+          utmMedium={utmMedium}
+          setUtmMedium={setUtmMedium}
+          utmCampaign={utmCampaign}
+          setUtmCampaign={setUtmCampaign}
+          onApplyDefaults={onApplyUtmDefaults}
+        />
+
+        <ShareAbPanel
+          sc={sc}
+          text={text}
+          setText={setText}
+          textB={textB}
+          setTextB={setTextB}
+          activeVariant={activeVariant}
+          setActiveVariant={setActiveVariant}
+        />
+
+        <ShareSocialPreview sc={sc} title={title} description={assembled} url={url} />
+
+        <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
+          <p className="text-[10px] font-black uppercase tracking-wider text-gold">{sc.ogImage.title}</p>
+          <p className="mt-1 text-[11px] text-zinc-500">{sc.ogImage.hint}</p>
+          <a
+            href={`/api/og/share?title=${encodeURIComponent(title || "Vanguard")}&level=1`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 inline-block text-xs font-bold text-gold underline"
+          >
+            {sc.ogImage.open}
+          </a>
+        </div>
+
+        <Card className="rounded-[2rem] border border-white/10 p-5">
+          <p className="text-[10px] font-black uppercase tracking-wider text-gold">{sc.mediaNote.title}</p>
+          <p className="mt-2 text-xs leading-relaxed text-zinc-400">{sc.mediaNote.body}</p>
+        </Card>
+
         <Card className="rounded-[2rem] border border-white/10 p-6">
           <p className="text-xs font-bold uppercase tracking-[0.25em] text-gold">{sc.preview.kicker}</p>
           <div className="mt-3 max-h-64 overflow-y-auto rounded-2xl border border-white/10 bg-black/50 p-4 text-sm text-zinc-200">
@@ -151,6 +221,8 @@ export function ShareStudioForm({
             </Button>
           </div>
         </Card>
+
+        <ShareChannelPreviews sc={sc} snippets={channelSnippets} />
 
         {limitWarnings.length > 0 ? (
           <Card className="rounded-2xl border border-white/10 p-4">

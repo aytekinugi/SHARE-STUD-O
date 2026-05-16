@@ -153,6 +153,8 @@
     "clipboardOkDesc": "İlk 280 karakter birleşik önizleme ile aynı görünüyor.",
     "clipboardDiff": "Pano farklı",
     "clipboardDiffDesc": "Önce panoya yaz veya toplu düğmeden çalıştır; sonra tekrar doğrula.",
+    "popupBlockedTitle": "Sekmeler engellenmiş olabilir",
+    "popupBlockedDesc": "{{blocked}}/{{total}} sekme açılamadı — adres çubuğundan bu site için açılır pencerelere izin ver, sonra tekrar dene.",
     "batchSentDescSyncedRemainder": "{{channelCount}} kanal · ilk {{openTabs}} sekme. ~{{seconds}} sn sonra kalan {{restCount}} URL panoya düşecek. Çok sekme engellendiyse adres çubuğundan izin ver.",
     "batchSentDescSynced": "{{channelCount}} kanal · ilk {{openTabs}} sekme. Çok sekme engellendiyse adres çubuğundan izin ver.",
     "batchSentDescUnsynced": "{{channelCount}} kanal · ilk {{openTabs}} sekme. Pano tutmadıysa önizlemeden kopyala."
@@ -256,5 +258,75 @@
   },
   "batchStatus": {
     "busy": "Toplu paylaşım çalışıyor…"
+  },
+  "mediaNote": {
+    "title": "Görsel & medya",
+    "body": "Instagram, Pinterest ve benzeri kanallar görseli bu ekranda yüklemez — birleşik metin panoda; görseli uygulamada veya Pinterest \"görsel URL\" alanından eklersin. Vanguard sunucusuna dosya gönderilmez."
+  },
+  "channelSnippets": {
+    "title": "Kanala göre kırpılmış önizleme",
+    "hint": "Tam metin birleşik önizlemede; aşağıda limitli kanallar için yaklaşık kutu metni.",
+    "truncated": "kısaltıldı"
+  },
+  "shortLink": {
+    "create": "Kısa link oluştur",
+    "created": "Kısa link panoda",
+    "fail": "Kısa link oluşturulamadı",
+    "login": "Kısa link için giriş gerekir"
+  },
+  "cloudTemplates": {
+    "title": "Bulut şablonları",
+    "save": "Mevcut paketi kaydet",
+    "namePh": "Şablon adı",
+    "load": "Yükle",
+    "delete": "Sil",
+    "saved": "Şablon kaydedildi",
+    "loaded": "Şablon yüklendi",
+    "deleted": "Şablon silindi",
+    "empty": "Henüz kayıtlı şablon yok",
+    "login": "Bulut şablonu için giriş gerekir"
+  },
+  "utm": {
+    "title": "UTM / kampanya",
+    "hint": "Paylaşım URL'sine izleme parametreleri eklenir.",
+    "defaults": "Quest varsayılanı",
+    "sourcePh": "utm_source",
+    "mediumPh": "utm_medium",
+    "campaignPh": "utm_campaign"
+  },
+  "ab": {
+    "title": "A / B metin",
+    "hint": "İki varyant; aktif olan birleşik önizlemede kullanılır.",
+    "variantA": "Varyant A",
+    "variantB": "Varyant B"
+  },
+  "socialPreview": {
+    "title": "Sosyal kart önizlemesi",
+    "hint": "Yaklaşık görünüm; platformlar farklı kırpabilir.",
+    "linkedin": "LinkedIn",
+    "xCard": "X",
+    "fallbackTitle": "Vanguard",
+    "fallbackDesc": "Paylaşım metni burada görünür."
+  },
+  "channelReminder": {
+    "title": "Henüz açılmadı",
+    "body": "Seçili kanallardan bunlara bu kampanyada link tıklanmadı (yerel kayıt):"
+  },
+  "guildTemplates": {
+    "title": "Guild şablonları",
+    "save": "Guild'e kaydet",
+    "namePh": "Şablon adı",
+    "load": "Yükle",
+    "empty": "Guild şablonu yok"
+  },
+  "ogImage": {
+    "title": "Paylaşım görseli",
+    "open": "OG görseli aç",
+    "hint": "Quest başlığı ve seviye ile 1200×630 önizleme (indir / paylaş)."
+  },
+  "premium": {
+    "freeHint": "Free: günlük 5 kısa link, 3 bulut şablon, batch'te en fazla 5 sekme. Pro ile limitler artar.",
+    "shortLinkLimit": "Günlük kısa link limitine ulaştın — Pro'ya geç.",
+    "templateLimit": "Bulut şablon limitine ulaştın — Pro'ya geç."
   }
 }

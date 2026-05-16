@@ -2,7 +2,8 @@
 
 import { Dispatch, SetStateAction, useState } from "react";
 import { motion } from "framer-motion";
-import { Check, Plus, Swords } from "lucide-react";
+import Link from "next/link";
+import { Check, Plus, Share2, Swords } from "lucide-react";
 import { toast } from "sonner";
 import { LevelUpBurst } from "@/components/dashboard/level-up-burst";
 import { Button } from "@/components/ui/button";
@@ -76,6 +77,16 @@ export function QuestLog({
       setTimeout(() => setLevelBurst(false), 1800);
     }
     if (navigator.vibrate) navigator.vibrate([18, 24, 18]);
+    toast.success("Quest tamamlandı!", {
+      description: "Kazancını paylaş",
+      action: {
+        label: "Paylaş",
+        onClick: () => {
+          window.location.href = `/share/c/${quest.id}`;
+        }
+      },
+      duration: 8000
+    });
   }
 
   return (
@@ -119,45 +130,51 @@ export function QuestLog({
             </div>
           )}
           {quests.map((quest) => (
-            <motion.button
+            <motion.div
               key={quest.id}
               layout
-              type="button"
-              whileTap={{ scale: 0.985 }}
-              onClick={() => completeQuest(quest)}
-              className="group w-full overflow-hidden rounded-2xl border border-white/10 bg-white/[.03] p-4 text-left transition hover:border-gold/30"
+              className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[.03] p-4 transition hover:border-gold/30"
             >
-              <div className="flex items-center gap-3">
-                <span
-                  className={`grid h-9 w-9 place-items-center rounded-xl border ${
-                    quest.status === "done"
-                      ? "border-emerald/40 bg-emerald/20 text-emerald"
-                      : "border-gold/20 bg-gold/10 text-gold"
-                  }`}
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => completeQuest(quest)}
+                  className="flex min-w-0 flex-1 items-center gap-3 text-left"
                 >
-                  {quest.status === "done" ? (
-                    <Check className="h-5 w-5" />
-                  ) : (
-                    <Swords className="h-5 w-5" />
-                  )}
-                </span>
-                <div className="min-w-0 flex-1">
-                  <p
-                    className={`font-bold ${quest.status === "done" ? "text-zinc-500 line-through" : "text-white"}`}
+                  <span
+                    className={`grid h-9 w-9 shrink-0 place-items-center rounded-xl border ${
+                      quest.status === "done"
+                        ? "border-emerald/40 bg-emerald/20 text-emerald"
+                        : "border-gold/20 bg-gold/10 text-gold"
+                    }`}
                   >
-                    {quest.title}
-                  </p>
-                  <p className="text-xs uppercase tracking-[0.2em] text-zinc-600">
-                    {quest.category} • +{quest.difficulty} XP
-                  </p>
-                </div>
+                    {quest.status === "done" ? <Check className="h-5 w-5" /> : <Swords className="h-5 w-5" />}
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <p className={`font-bold ${quest.status === "done" ? "text-zinc-500 line-through" : "text-white"}`}>
+                      {quest.title}
+                    </p>
+                    <p className="text-xs uppercase tracking-[0.2em] text-zinc-600">
+                      {quest.category} • +{quest.difficulty} XP
+                    </p>
+                  </div>
+                </button>
+                <Link
+                  href={`/share/c/${quest.id}`}
+                  className="shrink-0 rounded-xl border border-white/10 p-2 text-zinc-400 transition hover:border-gold/40 hover:text-gold"
+                  title="Paylaşım stüdyosu"
+                  aria-label="Paylaşım stüdyosu"
+                  data-testid={`quest-share-${quest.id}`}
+                >
+                  <Share2 className="h-4 w-4" />
+                </Link>
               </div>
               <motion.div
                 initial={false}
                 animate={{ width: quest.status === "done" ? "100%" : "0%" }}
                 className="mt-3 h-0.5 bg-gradient-to-r from-gold to-emerald"
               />
-            </motion.button>
+            </motion.div>
           ))}
         </div>
       </Card>

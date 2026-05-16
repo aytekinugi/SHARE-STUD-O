@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase-server";
+import { checkRateLimit, rateLimitKey } from "@/lib/rate-limit";
+import { suggestHashtagsForQuest } from "@/lib/share-quest-hashtags";
+import type { StatCategory } from "@/lib/types";
 
 /** İsteğe bağlı: giriş yapmış kullanıcının görevini paylaşım formuna hazırlar (metin sunucuda üretilir, batch yine istemcide). */
 export async function GET(req: Request) {
@@ -14,6 +17,9 @@ export async function GET(req: Request) {
     data: { user }
   } = await supabase.auth.getUser();
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
+  const rl = checkRateLimit(`campaign:${rateLimitKey(req, user.id)}`, 60, 60_000);
+  if (!rl.allowed) return NextResponse.json({ error: "Too many requests" }, { status: 429 });
 
   const { searchParams } = new URL(req.url);
   const questId = searchParams.get("questId")?.trim();
@@ -40,10 +46,13 @@ export async function GET(req: Request) {
   const origin = new URL(req.url).origin;
   const categoryLabel = quest.category === "str" ? "STR" : quest.category === "int" ? "INT" : "CHA";
 
+  const category = quest.category as StatCategory;
   return NextResponse.json({
     title: quest.title,
     text: `Vanguard quest · ${categoryLabel} · +${quest.difficulty} XP\n\n${quest.title}`,
     url: `${origin}/dashboard`,
-    questId: quest.id
+    questId: quest.id,
+    hashtags: suggestHashtagsForQuest(category, quest.difficulty),
+    category
   });
 }

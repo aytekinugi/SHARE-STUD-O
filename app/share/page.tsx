@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import shareTr from "@/messages/tr/share.json";
 import shareEn from "@/messages/en/share.json";
 import { ShareSentryInit } from "@/components/share/share-sentry-init";
+import { SharePwaRegister } from "@/components/share/share-pwa-register";
 import { SharePageNav } from "@/components/share/share-page-nav";
 
 export const metadata: Metadata = {
@@ -25,6 +26,7 @@ export default function SharePage() {
   return (
     <>
       <ShareSentryInit />
+      <SharePwaRegister />
       <SharePageNav />
       <ShareStudio />
     </>

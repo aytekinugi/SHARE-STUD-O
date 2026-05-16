@@ -1,0 +1,39 @@
+{
+  "nav": {
+    "shareStudio": "Paylaşım stüdyosu",
+    "enter": "Giriş"
+  },
+  "hero": {
+    "badge": "30 saniyede değer",
+    "titleBefore": "Gerçek hayatını ",
+    "titleHighlight": "epik bir kampanyaya",
+    "titleAfter": " dönüştür.",
+    "intro": "Vanguard AI belirsiz hedefleri görevlere çevirir, XP verir, serileri takip eder ve The Sage ile yönlendirir.",
+    "start": "Yolculuğa başla",
+    "vault": "Kasayı gör",
+    "share": "Her yere paylaş",
+    "stats": ["Güç alışkanlıkları", "Zeka işleri", "Karizma / iyi oluş"]
+  },
+  "vault": {
+    "kicker": "Kasa",
+    "title": "The Sage sınırsız olsun diye yükselt.",
+    "price": "$12",
+    "perMonth": "/ay",
+    "perks": ["Sınırsız AI koçluk", "Efsane avatar skinleri", "Haftalık AI yaşam raporu"]
+  },
+  "locale": { "label": "Dil", "tr": "Türkçe", "en": "English" },
+  "dashboard": {
+    "signOut": "Çıkış",
+    "upgrade": "Yükselt",
+    "questLog": "Görev günlüğü",
+    "shareWin": "Kazancını paylaş"
+  },
+  "onboarding": {
+    "title": "Karakter oluştur",
+    "continue": "Devam"
+  },
+  "marketplace": {
+    "title": "Pazar",
+    "buy": "Satın al"
+  }
+}

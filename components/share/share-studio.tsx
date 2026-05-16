@@ -19,6 +19,8 @@ import { ShareStudioToolbar } from "@/components/share/share-studio-toolbar";
 import { ShareStudioForm } from "@/components/share/share-studio-form";
 import { ShareStudioFooter } from "@/components/share/share-studio-footer";
 import { ShareQrDialog } from "@/components/share/share-qr-dialog";
+import { ShareChannelReminder } from "@/components/share/share-channel-reminder";
+import { ShareGuildTemplatesPanel } from "@/components/share/share-guild-templates-panel";
 import { EXTRA_CHANNELS } from "@/components/share/share-channels-config";
 
 const ShareExtraNetworksPanel = dynamic(
@@ -153,7 +155,21 @@ export function ShareStudio() {
           onQr={() => s.setQrOpen(true)}
           onTemplate={s.applyTemplate}
           onCampaignLatest={() => void s.importCampaign()}
+          onShortLink={() => void s.createShortLink()}
+          shortLinkBusy={s.shortLinkBusy}
+          cloudName={s.cloudName}
+          setCloudName={s.setCloudName}
+          onSaveCloud={() => void s.saveCloudTemplate()}
+          cloudTemplates={s.cloudTemplates}
+          onLoadCloud={s.loadCloudTemplate}
+          onDeleteCloud={(id) => void s.deleteCloudTemplate(id)}
         />
+
+        <ShareGuildTemplatesPanel sc={s.sc} guildId={s.guildId} onLoad={s.loadCloudTemplate} onBuildPayload={s.buildExportPack} />
+
+        {s.plan === "free" ? <p className="mb-4 text-center text-[11px] text-zinc-500">{s.sc.premium.freeHint}</p> : null}
+
+        <ShareChannelReminder sc={s.sc} labels={s.unopenedLabels} />
 
         <div className="mb-8 flex flex-col gap-3 sm:flex-row">
           <Button type="button" size="lg" className="flex-1 rounded-2xl font-black" onClick={() => void s.nativeShare()} disabled={s.nativeBusy}>
@@ -193,6 +209,18 @@ export function ShareStudio() {
           setWarmClose={s.setWarmClose}
           assembled={s.assembled}
           limitWarnings={s.limitWarnings}
+          channelSnippets={s.channelSnippets}
+          textB={s.textB}
+          setTextB={s.setTextB}
+          activeVariant={s.activeVariant}
+          setActiveVariant={s.setActiveVariant}
+          utmSource={s.utmSource}
+          setUtmSource={s.setUtmSource}
+          utmMedium={s.utmMedium}
+          setUtmMedium={s.setUtmMedium}
+          utmCampaign={s.utmCampaign}
+          setUtmCampaign={s.setUtmCampaign}
+          onApplyUtmDefaults={s.applyUtmDefaults}
           onVerifyClipboard={() => void s.verifyClipboardSnippet()}
         />
 
@@ -230,6 +258,7 @@ export function ShareStudio() {
                 onDragStart={() => s.onChannelDragStart(ch.id)}
                 onDragEnd={s.onChannelDragEnd}
                 onDrop={() => s.onChannelDrop(ch.id)}
+                onChannelOpen={s.recordChannelOpen}
               />
             ))}
           </div>
@@ -278,6 +307,7 @@ export function ShareStudio() {
                       onDragStart={() => s.onChannelDragStart(ch.id)}
                       onDragEnd={s.onChannelDragEnd}
                       onDrop={() => s.onChannelDrop(ch.id)}
+                      onChannelOpen={s.recordChannelOpen}
                     />
                   )}
                 />
@@ -301,6 +331,7 @@ export function ShareStudio() {
           rememberSkipPreview={batch.rememberSkipPreview}
           setRememberSkipPreview={batch.setRememberSkipPreview}
           assembledLength={s.assembled.length}
+          batchMaxTabs={s.batchMaxTabs}
           onClose={closeBatchDialog}
           onSubmit={(openN, copyRemainder, remember) => batch.executeBatchImmediate(openN, copyRemainder, remember)}
         />

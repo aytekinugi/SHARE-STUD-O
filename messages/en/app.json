@@ -1,0 +1,39 @@
+{
+  "nav": {
+    "shareStudio": "Share Studio",
+    "enter": "Enter"
+  },
+  "hero": {
+    "badge": "Time-to-value under 30 seconds",
+    "titleBefore": "Make your real life feel like an ",
+    "titleHighlight": "epic campaign.",
+    "titleAfter": "",
+    "intro": "Vanguard AI converts vague goals into quests, assigns XP, tracks streaks, and guides you with a premium AI mentor called The Sage.",
+    "start": "Start your journey",
+    "vault": "View the Vault",
+    "share": "Share everywhere",
+    "stats": ["Strength habits", "Intelligence work", "Charisma wellness"]
+  },
+  "vault": {
+    "kicker": "The Vault",
+    "title": "Upgrade when you want The Sage unlimited.",
+    "price": "$12",
+    "perMonth": "/mo",
+    "perks": ["Unlimited AI coaching", "Legendary avatar skins", "Weekly AI life-audit reports"]
+  },
+  "locale": { "label": "Language", "tr": "Türkçe", "en": "English" },
+  "dashboard": {
+    "signOut": "Sign out",
+    "upgrade": "Upgrade",
+    "questLog": "Quest log",
+    "shareWin": "Share your win"
+  },
+  "onboarding": {
+    "title": "Create your character",
+    "continue": "Continue"
+  },
+  "marketplace": {
+    "title": "Marketplace",
+    "buy": "Buy"
+  }
+}

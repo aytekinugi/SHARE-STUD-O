@@ -21,9 +21,10 @@ type UseShareBatchOpts = {
   assembled: string;
   selected: Set<string>;
   gatherHrefList: () => string[];
+  batchMaxTabs?: number;
 };
 
-export function useShareBatch({ sc, assembled, selected, gatherHrefList }: UseShareBatchOpts) {
+export function useShareBatch({ sc, assembled, selected, gatherHrefList, batchMaxTabs = 5 }: UseShareBatchOpts) {
   const [batchBusy, setBatchBusy] = useState(false);
   const batchDialogRef = useRef<HTMLDialogElement | null>(null);
   const batchReturnFocusRef = useRef<HTMLElement | null>(null);
@@ -101,12 +102,27 @@ export function useShareBatch({ sc, assembled, selected, gatherHrefList }: UseSh
         if (!ok) shareUxLog("clipboard_write_api_failed_main", {});
       });
 
-      if (slice[0]) openShareExternal(slice[0]);
+      let blockedTabs = 0;
+      if (slice[0] && !openShareExternal(slice[0])) blockedTabs += 1;
       for (let i = 1; i < slice.length; i++) {
         const href = slice[i];
         window.setTimeout(() => {
-          if (href) openShareExternal(href);
+          if (href && !openShareExternal(href)) blockedTabs += 1;
         }, i * 180);
+      }
+      if (slice.length > 0) {
+        window.setTimeout(() => {
+          if (blockedTabs > 0) {
+            shareUxLog("popup_blocker_detected", { blocked: blockedTabs, attempted: slice.length });
+            toast.message(sc.toasts.popupBlockedTitle, {
+              description: interpolateShare(sc.toasts.popupBlockedDesc, {
+                blocked: blockedTabs,
+                total: slice.length
+              }),
+              duration: 7000
+            });
+          }
+        }, Math.max(400, slice.length * 200));
       }
 
       const copyRemainder = copyRemainderUrls && rest.length > 0;
@@ -172,7 +188,7 @@ export function useShareBatch({ sc, assembled, selected, gatherHrefList }: UseSh
 
     previewPackRef.current = { urls: [...uniqueHrefs], assembled, channelCount: selected.size };
     const urlTotal = uniqueHrefs.length;
-    const sensibleOpen = clampOpenTabCount(Math.min(5, urlTotal), urlTotal);
+    const sensibleOpen = clampOpenTabCount(Math.min(batchMaxTabs, urlTotal), urlTotal);
 
     setDlgUrlTotal(urlTotal);
     setDlgPreviewUrls([...uniqueHrefs]);
@@ -194,7 +210,7 @@ export function useShareBatch({ sc, assembled, selected, gatherHrefList }: UseSh
     queueMicrotask(() => {
       batchDialogRef.current?.querySelector<HTMLButtonElement>('button[type="submit"]')?.focus();
     });
-  }, [assembled, batchBusy, executeBatchImmediate, gatherHrefList, sc, selected.size]);
+  }, [assembled, batchBusy, batchMaxTabs, executeBatchImmediate, gatherHrefList, sc, selected.size]);
 
   return {
     batchBusy,

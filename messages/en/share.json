@@ -153,6 +153,8 @@
     "clipboardOkDesc": "First 280 characters look like the unified preview.",
     "clipboardDiff": "Clipboard differs",
     "clipboardDiffDesc": "Write to clipboard first or run the batch button, then verify again.",
+    "popupBlockedTitle": "Tabs may have been blocked",
+    "popupBlockedDesc": "{{blocked}}/{{total}} tabs did not open — allow pop-ups for this site from the address bar, then try again.",
     "batchSentDescSyncedRemainder": "{{channelCount}} channels · first {{openTabs}} tabs. In ~{{seconds}}s the remaining {{restCount}} URLs will hit the clipboard. If many tabs were blocked, allow them from the address bar.",
     "batchSentDescSynced": "{{channelCount}} channels · first {{openTabs}} tabs. If many tabs were blocked, allow them from the address bar.",
     "batchSentDescUnsynced": "{{channelCount}} channels · first {{openTabs}} tabs. If clipboard failed, copy from preview."
@@ -256,5 +258,75 @@
   },
   "batchStatus": {
     "busy": "Batch share in progress…"
+  },
+  "mediaNote": {
+    "title": "Images & media",
+    "body": "Instagram, Pinterest and similar channels do not upload files on this screen — combined text goes to the clipboard; add images in each app or via the Pinterest image URL field. Nothing is sent to Vanguard servers."
+  },
+  "channelSnippets": {
+    "title": "Per-channel clipped preview",
+    "hint": "Full text stays in unified preview; below is approximate box text for limited channels.",
+    "truncated": "clipped"
+  },
+  "shortLink": {
+    "create": "Create short link",
+    "created": "Short link on clipboard",
+    "fail": "Could not create short link",
+    "login": "Sign in to create short links"
+  },
+  "cloudTemplates": {
+    "title": "Cloud templates",
+    "save": "Save current pack",
+    "namePh": "Template name",
+    "load": "Load",
+    "delete": "Delete",
+    "saved": "Template saved",
+    "loaded": "Template loaded",
+    "deleted": "Template deleted",
+    "empty": "No saved templates yet",
+    "login": "Sign in for cloud templates"
+  },
+  "utm": {
+    "title": "UTM / campaign",
+    "hint": "Tracking params are appended to the share URL.",
+    "defaults": "Quest defaults",
+    "sourcePh": "utm_source",
+    "mediumPh": "utm_medium",
+    "campaignPh": "utm_campaign"
+  },
+  "ab": {
+    "title": "A / B copy",
+    "hint": "Two variants; the active one is used in the unified preview.",
+    "variantA": "Variant A",
+    "variantB": "Variant B"
+  },
+  "socialPreview": {
+    "title": "Social card preview",
+    "hint": "Approximate layout; platforms may crop differently.",
+    "linkedin": "LinkedIn",
+    "xCard": "X",
+    "fallbackTitle": "Vanguard",
+    "fallbackDesc": "Share copy appears here."
+  },
+  "channelReminder": {
+    "title": "Not opened yet",
+    "body": "Selected channels with no link click this campaign (local only):"
+  },
+  "guildTemplates": {
+    "title": "Guild templates",
+    "save": "Save to guild",
+    "namePh": "Template name",
+    "load": "Load",
+    "empty": "No guild templates"
+  },
+  "ogImage": {
+    "title": "Share image",
+    "open": "Open OG image",
+    "hint": "1200×630 preview from quest title (download / share)."
+  },
+  "premium": {
+    "freeHint": "Free: 5 short links/day, 3 cloud templates, max 5 batch tabs. Pro raises limits.",
+    "shortLinkLimit": "Daily short link limit reached — upgrade to Pro.",
+    "templateLimit": "Cloud template limit reached — upgrade to Pro."
   }
 }

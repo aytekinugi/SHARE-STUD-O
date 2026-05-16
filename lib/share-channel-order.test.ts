@@ -6,6 +6,7 @@ import {
   formatRemainingUrlsForClipboard,
   normalizeMastodonHost,
   orderedChannelIds,
+  reorderChannelIds,
   SHARE_EXTRA_ORDER,
   SHARE_PRIMARY_ORDER
 } from "./share-channel-order";
@@ -42,6 +43,11 @@ describe("share-channel-order", () => {
   it("formatRemainingUrlsForClipboard lists urls", () => {
     expect(formatRemainingUrlsForClipboard(["https://a", "https://b"])).toContain("https://a");
     expect(formatRemainingUrlsForClipboard([])).toBe("");
+  });
+
+  it("reorderChannelIds moves dragged before target", () => {
+    const order = ["ig", "wa", "yt", "li", "x"];
+    expect(reorderChannelIds(order, "x", "ig")).toEqual(["x", "ig", "wa", "yt", "li"]);
   });
 
   it("clampOpenTabCount", () => {
