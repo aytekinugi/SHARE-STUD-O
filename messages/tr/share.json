@@ -1,0 +1,260 @@
+{
+  "loading": "Paylaşım stüdyosu yükleniyor…",
+  "hero": {
+    "kicker": "Paylaşım merkezi",
+    "titleBefore": "Limite yok — ",
+    "titleHighlight": "hepsine aynı hikâye.",
+    "intro": "Kanal kartlarını işaretle — toplu akış özette onaylanır. Instagram ve WhatsApp Durumu için en güvenilir rota panodan yapıştırmadır (yukarıdaki ilkeler korunur).",
+    "keyboard": "Klavye:",
+    "kbdSlash": "ana metne ·",
+    "kbdG": "içerik kutusuna ·",
+    "kbdB": "toplu paylaşım özeti."
+  },
+  "trustBanner": {
+    "title": "Güven iddiamız · bu sayfa",
+    "bullets": [
+      "Metin kutuların ve oluşturduğumuz bağlantılar Vanguard'a POST edilmez — yalnızca tarayıcıda bir araya getiririz.",
+      "Pano + sekme açma tamamen cihazındadır; açılan Instagram, WhatsApp Web, vb. ortamların gizliliği ilgili platforma aittir.",
+      "Kontrol etmek için birleşik önizlemedeki \"Pano doğrula\" ilk 280 karakteri şeffafça karşılaştırır."
+    ]
+  },
+  "tipsSectionTitle": "Seçimin için ipuçları",
+  "policyCard": {
+    "title": "Sekme & pano politikası",
+    "steps": [
+      "Onay sonrası önce birleşik metin panoya gider (senkron yedek + tarayıcı API denemesi).",
+      "İlk N sekme aynı tıklama turunda sırayla açılır — N'yi özette seçersin (varsayılan en fazla 5).",
+      "İşaretlersen kalan adresler kısa bir gecikmeyle ikinci pano turunda gelir (önce metni uygulamalara yapıştır).",
+      "Tarayıcı çoklu sekmeyi keserse adres çubuğundan açılışlara izin ver."
+    ]
+  },
+  "safari": {
+    "summary": "iPhone / iPad Safari notu",
+    "body": "iOS Safari bazen arka arkaya window.open çağrılarını keser; pano her zaman yedek olarak kalır. Gerekirse \"İlk açılacak sekme sayısını\" düşür veya kalan URL'leri panoya bırak. Pano okuması için siteye izin vermen gerekebilir (Ayarlar → Safari → Gelişmiş)."
+  },
+  "notSentChecklist": {
+    "title": "Bu ekranda Vanguard sunucusuna gitmez",
+    "items": [
+      "Başlık, ana metin, link, hashtag ve CTA alanları",
+      "Birleşik önizleme metni (yalnızca tarayıcıda üretilir)",
+      "Pano içeriği (yalnızca cihazın panosuna yazılır)",
+      "Seçtiğin kanal listesi (yalnızca oturum belleğinde, isteğe bağlı \"özeti atla\" tercihi)"
+    ]
+  },
+  "footer": {
+    "privacyTitle": "Gizlilik & veri akışı",
+    "privacyBody": "Bu ekranın form alanları Vanguard API'sine gönderilmez; yalnızca tarayıcıda birleştirilir. Panoya yazma ve sekme açma cihazındadır. Bu sayfaya özel ürün analitiği eklemedik; açtığın üçüncü taraf siteler kendi çerez ve politikalarına tabidir.",
+    "brandTitle": "Marka ve üçüncü taraf siteler",
+    "brandBody": "Instagram, WhatsApp, YouTube, Facebook, LinkedIn ve diğer logoları ilgili hak sahiplerine aittir. Vanguard bu uygulamaların resmi ürünü değildir; yalnızca genel kullanıcı tarayıcı bağlantılarını düzenlemenize yardımcı olan kısayollardır. Mağaza / platform politikalarına kendi içeriğiniz için uyumu siz doğrularsınız."
+  },
+  "batchDialog": {
+    "title": "Toplu özeti & sekme sırası",
+    "subtitle": "benzersiz sekme · sıra yıldız kanallardan ek ağlara doğru sabittir.",
+    "triggerExplainer": "Bu onay şunları sırayla tetikler:",
+    "triggerSteps": "① birleşik metin pano ·② aynı turda ilk N adres yeni sekme ·③ işaretlediysen kalan bağlantılar kısa gecikmeyle panoda tekrar.",
+    "heavyTabs": "Çok fazla sekme — tarayıcı kesebilir. İlk kutucukta sekmeleri sınırla veya kalan URL'leri panoya bırak. ",
+    "heavyText": "Metin çok uzun; bazı ağlar kutuyu kısaltır — tam metin panoda kalır.",
+    "orderLabel": "Açılış sırası",
+    "tabCountLabel": "İlk açılacak sekme sayısı (geri kalan isteğe bağlı panoda)",
+    "copyRemainLabel": "Kalan URL'leri gecikmeli olarak panoya yaz (önce birleşik metni uygulamalara yapıştır; birkaç saniye sonra adres listesi gelir).",
+    "skipNextLabel": "Bu özeti bir daha gösterme (güvenli olmayan durumlarda yine açılır).",
+    "submit": "Panoya yaz ve sekmeleri aç",
+    "cancel": "İptal",
+    "resetSkip": "\"Atlamayı\" sıfırla",
+    "resetSkipToastTitle": "Tamam",
+    "resetSkipToastDesc": "Özet penceresi tekrar gösterilecek.",
+    "hostPreviewTitle": "İlk sekmeler (simülasyon)",
+    "hostPreviewHint": "Aynı tıklamada açılacak ilk adreslerin host adları — tam URL'ler yine tarayıcıda.",
+    "hostPreviewEmpty": "Adres listesi boş."
+  },
+  "stickyFooter": {
+    "prefix": "Sekme & pano:",
+    "flow": "① Birleşik metin pano · ② İlk",
+    "flowN": "N",
+    "flow2": "sekme (özette) · ③ İsteğe bağlı kalan adresler ·",
+    "channels": "kanal seçili ·",
+    "kbdB": "özeti"
+  },
+  "buttons": {
+    "nativeShare": "Telefonun paylaşımını aç",
+    "copyOnly": "Sadece panoya yaz",
+    "batch": "Panoyu yükle ve kanalları aç",
+    "batchBusy": "Açılıyor…",
+    "verifyClipboard": "Pano doğrula (ilk 280)",
+    "selectAllPrimary": "Tümünü seç",
+    "clearPrimary": "Yıldız kanallarını temizle",
+    "moreNetworks": "Daha fazla ağ",
+    "selectAllExtras": "Ek ağların tümü",
+    "clearExtras": "Ek ağı temizle",
+    "copyCard": "Panoyu güncelle",
+    "selectCheckbox": "Seç"
+  },
+  "content": {
+    "sectionAria": "Ortak metin formu",
+    "kicker": "İçerik",
+    "title": "Ortak metin kutusu",
+    "labelTitle": "Başlık (isteğe bağlı)",
+    "phTitle": "Kampanya / ürün / video adı",
+    "labelBody": "Ana metin",
+    "phBody": "Her kanala gidecek ortak açıklama…",
+    "labelUrl": "Link",
+    "phUrl": "https://…"
+  },
+  "settings": {
+    "kicker": "Paylaşım ayarları",
+    "title": "Hepsine birden uygulanır",
+    "hint": "Hashtag, çağrı ve sıcak kapanış — önizlemede görünür; toplu aç düğmesiyle kanallara taşınır.",
+    "labelTags": "Hashtag / anahtar satırı",
+    "phTags": "#gaming #kampanya",
+    "labelCta": "Son CTA",
+    "phCta": "DM atın — stoklar sınırlı 👇",
+    "warmOn": "Açık · ✨ eklenir",
+    "warmOff": "Kapalı",
+    "warmLabel": "Sıcak kapanış"
+  },
+  "preview": {
+    "kicker": "Birleşik önizleme",
+    "empty": "(Boş)",
+    "chars": "karakter"
+  },
+  "channelsSection": "Yıldız kanallar",
+  "extraFieldsHint": "Bazı ağlar için ek alanlar",
+  "labelPinterest": "Pinterest görsel URL",
+  "labelMastodon": "Mastodon sunucusu",
+  "phMastodon": "mastodon.social",
+  "cardActions": {
+    "instagram": "instagram.com",
+    "whatsappChat": "Sohbeti aç",
+    "youtubeUpload": "Yükleme",
+    "marketplaceNew": "Yeni ilan",
+    "linkedinShare": "LinkedIn paylaş",
+    "open": "Aç"
+  },
+  "toasts": {
+    "copySuccess": "Tam paket panoda",
+    "copyFailTitle": "Kopyalanamadı",
+    "copyFailDesc": "Önizlemeden seçip Cmd/Ctrl+C dene veya HTTPS ile aç.",
+    "nativeNoneTitle": "Bu tarayıcıda yerel paylaşım yok",
+    "nativeNoneDesc": "Önce içeriği kopyalayın veya aşağıdan toplu kanal açın.",
+    "nativeOk": "Paylaşım menüsü açıldı",
+    "longTextTitle": "Çok uzun metin",
+    "longTextDesc": "X / Bluesky gibi yerler kutuyu kısaltır; tam metin panoda / önizlemede durur.",
+    "batchSent": "Paket gönderildi",
+    "remainderTitle": "Kalan adresler panoda",
+    "remainderDesc": "birleşik metni yayınlara yaydıktan sonra sırayla kullanabilirsin.",
+    "noHref": "Açılacak adres üretilemedi.",
+    "noChannels": "Önce kanal seç",
+    "noChannelsDesc": "Kartta \"Seç\" kutusunu işaretle.",
+    "noHrefGen": "Seçilen kanallar için adres çıkmadı",
+    "noHrefGenDesc": "Parametreleri kontrol et veya kanal seçimini değiştir.",
+    "clipboardReadFail": "Pano okunamadı",
+    "clipboardReadFailDesc": "Tarayıcı izni ver veya HTTPS ile dene.",
+    "clipboardOk": "Pano eşleşti",
+    "clipboardOkDesc": "İlk 280 karakter birleşik önizleme ile aynı görünüyor.",
+    "clipboardDiff": "Pano farklı",
+    "clipboardDiffDesc": "Önce panoya yaz veya toplu düğmeden çalıştır; sonra tekrar doğrula.",
+    "batchSentDescSyncedRemainder": "{{channelCount}} kanal · ilk {{openTabs}} sekme. ~{{seconds}} sn sonra kalan {{restCount}} URL panoya düşecek. Çok sekme engellendiyse adres çubuğundan izin ver.",
+    "batchSentDescSynced": "{{channelCount}} kanal · ilk {{openTabs}} sekme. Çok sekme engellendiyse adres çubuğundan izin ver.",
+    "batchSentDescUnsynced": "{{channelCount}} kanal · ilk {{openTabs}} sekme. Pano tutmadıysa önizlemeden kopyala."
+  },
+  "clipboardCopyMessages": {
+    "ig": "Instagram için panoda",
+    "wa": "WhatsApp için panoda",
+    "yt": "YouTube açıklaması panoda",
+    "fb-mp": "Marketplace ilanı panoda",
+    "li": "LinkedIn taslak panoda"
+  },
+  "contextualTips": {
+    "ig": "Instagram: Durum / Reels — birleşik metni panoya alıp uygulamada yapıştır.",
+    "wa": "WhatsApp: Durum için yapıştır; \"Sohbet\" düğmesi hazır metin bağlantısını açar.",
+    "yt": "YouTube: Videoyu seçtikten sonra uzun \"açıklama\" kutusuna panoyu yapıştır.",
+    "fb-mp": "Marketplace: Başlık + açıklama adımlarını sırayla doldur; görsel gerekebilir.",
+    "li": "LinkedIn: Yayında link özetlenir — uzun metni gönderi veya ilk yorum olarak ekleyebilirsin.",
+    "x": "X: URL uzun olduğunda tarayıcı kısıtlayabilir; tam metin her zaman önizlemede.",
+    "fb": "Facebook gönderisi: bağlantı önizlemesi çıkar; açıklamayı yayında güncelle.",
+    "tg": "Telegram: paylaşım sayfasına metni ve URL parametre olarak taşıdık.",
+    "rd": "Reddit: altreddit seçimini sitede yap; başlık kısaltılmış olabilir.",
+    "pi": "Pinterest: \"görsel URL\" alanı pin kalitesini artırır.",
+    "vk": "VK: başlık + yorum parametreleri paylaşım formunda kullanılabilir.",
+    "line": "LINE: URL ile hızlı paylaşım; ek yazı için panoyu kullan.",
+    "hn": "Hacker News: başlık kısıtlarına takılmamak için panoyu yanında tut.",
+    "wb": "Weibo: uzun gövdeyi kutuda yapıştır.",
+    "sk": "Skype: önce bağlantı; sonra ayrıntı.",
+    "bs": "Bluesky: intent kutusu bazen kırpar — tam blok panoda.",
+    "em": "E-posta: birleşik gövde mailto ile açılır.",
+    "sm": "SMS: operatör sınırı — metni gerekirse kısalt.",
+    "md": "Mastodon: örnek (instance) satırından kontrol et; Mastodon yazı kutusu kesilebilir."
+  },
+  "defaultBody": "Paylaşım metnim 👇",
+  "nativeShareDefaultTitle": "Paylaşım",
+  "offlineBanner": {
+    "title": "Çevrimdışısın",
+    "body": "Metin kutuları ve birleşik önizleme çalışır; yeni sekme ve uzak sitelere pano yazımı bağlantıyı gerektirir."
+  },
+  "localeSwitch": {
+    "label": "Dil",
+    "tr": "Türkçe",
+    "en": "English"
+  },
+  "pwaNote": {
+    "summary": "Yükleme / PWA",
+    "body": "Bu sayfa tam çevrimdışı PWA olarak kurulmadı; çevrimdışı iken sekme açma ve üçüncü taraf siteler çalışmayabilir."
+  },
+  "page": {
+    "metaTitle": "Paylaşım merkezi — Vanguard",
+    "metaDescription": "Metin tarayıcıda birleştirilir; pano ve sekme akışı şeffaf. Instagram, WhatsApp, YouTube ve daha fazlası.",
+    "navLogin": "Giriş"
+  },
+  "tools": {
+    "title": "Araçlar",
+    "clearData": "Veriyi temizle",
+    "clearDataDone": "Yerel veriler sıfırlandı",
+    "exportJson": "JSON dışa aktar",
+    "importJson": "JSON içe aktar",
+    "importOk": "Paket içe aktarıldı",
+    "importFail": "Geçersiz JSON",
+    "showQr": "QR kod",
+    "importCampaign": "Görevden doldur",
+    "importCampaignLatest": "Son görev",
+    "campaignOk": "Görev metni forma aktarıldı",
+    "campaignFail": "Görev alınamadı",
+    "campaignLogin": "Giriş yap veya quest parametresi kullan",
+    "debugEvents": "dataLayer olayları"
+  },
+  "charLimits": {
+    "title": "Seçili kanallarda uzunluk",
+    "over": "{{label}}: ~{{limit}} karaktere kısılır (şu an {{current}})",
+    "ok": "Seçili kısıtlı kanallar için uzunluk uygun görünüyor."
+  },
+  "templates": {
+    "title": "Şablonlar",
+    "productLaunch": "Ürün lansmanı",
+    "liveStream": "Canlı yayın",
+    "applied": "Şablon uygulandı"
+  },
+  "qr": {
+    "title": "QR — birleşik metin",
+    "hint": "Telefon kamerası ile tara; tam metin panoda da kalır.",
+    "close": "Kapat",
+    "offline": "QR için internet gerekir."
+  },
+  "dragOrder": {
+    "hint": "Sekme sırası: kartı sürükleyerek değiştir",
+    "reset": "Varsayılan sıra",
+    "resetDone": "Kanal sırası sıfırlandı"
+  },
+  "channelLabels": {
+    "x": "X",
+    "sm": "SMS",
+    "bs": "Bluesky",
+    "md": "Mastodon",
+    "tg": "Telegram",
+    "hn": "Hacker News"
+  },
+  "debug": {
+    "banner": "Paylaşım debug modu (?debug=share) — konsolda [vanguard-share-debug]"
+  },
+  "batchStatus": {
+    "busy": "Toplu paylaşım çalışıyor…"
+  }
+}

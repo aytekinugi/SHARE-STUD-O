@@ -1,0 +1,260 @@
+{
+  "loading": "Loading share studio…",
+  "hero": {
+    "kicker": "Share hub",
+    "titleBefore": "No hard cap — ",
+    "titleHighlight": "one story, every channel.",
+    "intro": "Check channel cards — the batch flow confirms in a summary. For Instagram and WhatsApp Status, the most reliable path is still paste from the clipboard (same principles as above).",
+    "keyboard": "Keyboard:",
+    "kbdSlash": "main text ·",
+    "kbdG": "content panel ·",
+    "kbdB": "batch share summary."
+  },
+  "trustBanner": {
+    "title": "Our trust claim · this page",
+    "bullets": [
+      "Your text fields and the links we build are not POSTed to Vanguard — we only assemble them in the browser.",
+      "Clipboard + tab opens stay on your device; privacy on Instagram, WhatsApp Web, etc. belongs to those platforms.",
+      "The unified preview’s “Verify clipboard” transparently compares the first 280 characters."
+    ]
+  },
+  "tipsSectionTitle": "Tips for your selection",
+  "policyCard": {
+    "title": "Tabs & clipboard policy",
+    "steps": [
+      "After confirm, the combined text hits the clipboard first (sync fallback + Clipboard API attempt).",
+      "The first N tabs open in one click burst — you pick N in the summary (default up to 5).",
+      "If checked, remaining URLs arrive on a short-delay second clipboard pass (paste into apps first).",
+      "If the browser blocks multiple tabs, allow pop-ups from the address bar."
+    ]
+  },
+  "safari": {
+    "summary": "iPhone / iPad Safari note",
+    "body": "iOS Safari sometimes blocks rapid window.open calls; the clipboard always remains the backup. Lower “first tabs to open” or leave remainder URLs on the clipboard. You may need to allow clipboard read for this site (Settings → Safari → Advanced)."
+  },
+  "notSentChecklist": {
+    "title": "What never hits Vanguard servers on this screen",
+    "items": [
+      "Title, main text, link, hashtag and CTA fields",
+      "Unified preview text (generated only in-browser)",
+      "Clipboard contents (written only to your device clipboard)",
+      "Your selected channel list (session memory only, optional “skip summary” preference)"
+    ]
+  },
+  "footer": {
+    "privacyTitle": "Privacy & data flow",
+    "privacyBody": "This screen’s form fields are not sent to the Vanguard API; they are merged only in the browser. Clipboard writes and tab opens stay on your device. We did not add product analytics specific to this page; third-party sites you open have their own cookies and policies.",
+    "brandTitle": "Brands and third-party sites",
+    "brandBody": "Logos for Instagram, WhatsApp, YouTube, Facebook, LinkedIn and others belong to their owners. Vanguard is not an official product of those apps — these are shortcuts to help you open general user share URLs in the browser. You are responsible for compliance with each store / platform policy for your own content."
+  },
+  "batchDialog": {
+    "title": "Batch summary & tab order",
+    "subtitle": "unique tabs · order is fixed from starred channels toward extra networks.",
+    "triggerExplainer": "This confirm triggers in order:",
+    "triggerSteps": "① combined text to clipboard ·② first N URLs as new tabs in the same burst ·③ if checked, remaining links on clipboard again after a short delay.",
+    "heavyTabs": "Many tabs — the browser may block them. Limit tabs in the field or keep remainder URLs on the clipboard. ",
+    "heavyText": "Very long text; some networks truncate the box — full text stays on the clipboard.",
+    "orderLabel": "Open order",
+    "tabCountLabel": "Number of tabs to open first (rest optionally on clipboard)",
+    "copyRemainLabel": "Copy remaining URLs to clipboard after a delay (paste combined text into apps first; the address list arrives a few seconds later).",
+    "skipNextLabel": "Don’t show this summary again (still appears when we consider it unsafe).",
+    "submit": "Write clipboard & open tabs",
+    "cancel": "Cancel",
+    "resetSkip": "Reset “skip summary”",
+    "resetSkipToastTitle": "Done",
+    "resetSkipToastDesc": "The summary dialog will show again.",
+    "hostPreviewTitle": "First tabs (simulation)",
+    "hostPreviewHint": "Hostnames for the first addresses opened in one click — full URLs still live in the browser.",
+    "hostPreviewEmpty": "Address list is empty."
+  },
+  "stickyFooter": {
+    "prefix": "Tabs & clipboard:",
+    "flow": "① Combined clipboard ·② First",
+    "flowN": "N",
+    "flow2": "tabs (in summary) ·③ Optional remainder URLs ·",
+    "channels": "channels selected ·",
+    "kbdB": "summary"
+  },
+  "buttons": {
+    "nativeShare": "Open native share",
+    "copyOnly": "Clipboard only",
+    "batch": "Load clipboard & open channels",
+    "batchBusy": "Opening…",
+    "verifyClipboard": "Verify clipboard (first 280)",
+    "selectAllPrimary": "Select all starred",
+    "clearPrimary": "Clear starred",
+    "moreNetworks": "More networks",
+    "selectAllExtras": "All extras",
+    "clearExtras": "Clear extras",
+    "copyCard": "Refresh clipboard",
+    "selectCheckbox": "Select"
+  },
+  "content": {
+    "sectionAria": "Shared text form",
+    "kicker": "Content",
+    "title": "Shared text box",
+    "labelTitle": "Title (optional)",
+    "phTitle": "Campaign / product / video name",
+    "labelBody": "Main text",
+    "phBody": "Shared description for every channel…",
+    "labelUrl": "Link",
+    "phUrl": "https://…"
+  },
+  "settings": {
+    "kicker": "Share settings",
+    "title": "Applied to all at once",
+    "hint": "Hashtag, CTA and warm sign-off show in preview and move with the batch button.",
+    "labelTags": "Hashtag / keyword line",
+    "phTags": "#gaming #campaign",
+    "labelCta": "Final CTA",
+    "phCta": "DM us — limited stock 👇",
+    "warmOn": "On · ✨ appended",
+    "warmOff": "Off",
+    "warmLabel": "Warm sign-off"
+  },
+  "preview": {
+    "kicker": "Unified preview",
+    "empty": "(Empty)",
+    "chars": "characters"
+  },
+  "channelsSection": "Starred channels",
+  "extraFieldsHint": "Extra fields for some networks",
+  "labelPinterest": "Pinterest image URL",
+  "labelMastodon": "Mastodon server",
+  "phMastodon": "mastodon.social",
+  "cardActions": {
+    "instagram": "instagram.com",
+    "whatsappChat": "Open chat",
+    "youtubeUpload": "Upload",
+    "marketplaceNew": "New listing",
+    "linkedinShare": "Share on LinkedIn",
+    "open": "Open"
+  },
+  "toasts": {
+    "copySuccess": "Full package on clipboard",
+    "copyFailTitle": "Could not copy",
+    "copyFailDesc": "Select from preview and try Cmd/Ctrl+C, or use HTTPS.",
+    "nativeNoneTitle": "Native share not available",
+    "nativeNoneDesc": "Copy the content first or open channels in batch below.",
+    "nativeOk": "Share sheet opened",
+    "longTextTitle": "Very long text",
+    "longTextDesc": "Places like X / Bluesky may truncate the box; full text stays on clipboard / preview.",
+    "batchSent": "Package sent",
+    "remainderTitle": "Remaining URLs on clipboard",
+    "remainderDesc": "use them in order after you’ve pasted the combined text into posts.",
+    "noHref": "Could not build an address to open.",
+    "noChannels": "Select a channel first",
+    "noChannelsDesc": "Check “Select” on a card.",
+    "noHrefGen": "No URLs for the current selection",
+    "noHrefGenDesc": "Check parameters or change channel selection.",
+    "clipboardReadFail": "Could not read clipboard",
+    "clipboardReadFailDesc": "Allow browser permission or try HTTPS.",
+    "clipboardOk": "Clipboard matches",
+    "clipboardOkDesc": "First 280 characters look like the unified preview.",
+    "clipboardDiff": "Clipboard differs",
+    "clipboardDiffDesc": "Write to clipboard first or run the batch button, then verify again.",
+    "batchSentDescSyncedRemainder": "{{channelCount}} channels · first {{openTabs}} tabs. In ~{{seconds}}s the remaining {{restCount}} URLs will hit the clipboard. If many tabs were blocked, allow them from the address bar.",
+    "batchSentDescSynced": "{{channelCount}} channels · first {{openTabs}} tabs. If many tabs were blocked, allow them from the address bar.",
+    "batchSentDescUnsynced": "{{channelCount}} channels · first {{openTabs}} tabs. If clipboard failed, copy from preview."
+  },
+  "clipboardCopyMessages": {
+    "ig": "On clipboard for Instagram",
+    "wa": "On clipboard for WhatsApp",
+    "yt": "YouTube description on clipboard",
+    "fb-mp": "Marketplace draft on clipboard",
+    "li": "LinkedIn draft on clipboard"
+  },
+  "contextualTips": {
+    "ig": "Instagram: Story / Reels — copy unified text to clipboard and paste in the app.",
+    "wa": "WhatsApp: paste for Status; “Open chat” opens a pre-filled message link.",
+    "yt": "YouTube: after picking a video, paste into the long description field.",
+    "fb-mp": "Marketplace: fill title + description in order; images may be required.",
+    "li": "LinkedIn: links summarize in the post — add long copy in the post or first comment.",
+    "x": "X: very long URLs may be limited by the browser; full text always stays in preview.",
+    "fb": "Facebook post: link preview appears; tweak description in the composer.",
+    "tg": "Telegram: we pass text and URL as query params to the share page.",
+    "rd": "Reddit: pick subreddit on site; title may be shortened.",
+    "pi": "Pinterest: “image URL” improves pin quality.",
+    "vk": "VK: title + comment params can be used in the share form.",
+    "line": "LINE: quick share via URL; use clipboard for extra copy.",
+    "hn": "Hacker News: keep clipboard handy for title limits.",
+    "wb": "Weibo: paste long body in the field.",
+    "sk": "Skype: link first; details after.",
+    "bs": "Bluesky: intent box may clip — full block on clipboard.",
+    "em": "Email: combined body opens via mailto.",
+    "sm": "SMS: carrier limits — shorten if needed.",
+    "md": "Mastodon: check your instance field; compose box may truncate."
+  },
+  "defaultBody": "My share copy 👇",
+  "nativeShareDefaultTitle": "Share",
+  "offlineBanner": {
+    "title": "You’re offline",
+    "body": "Text fields and unified preview still work; new tabs and remote clipboard writes need a connection."
+  },
+  "localeSwitch": {
+    "label": "Language",
+    "tr": "Türkçe",
+    "en": "English"
+  },
+  "pwaNote": {
+    "summary": "Install / PWA",
+    "body": "This page is not installed as a full offline PWA; opening tabs and third-party sites may not work while offline."
+  },
+  "page": {
+    "metaTitle": "Share hub — Vanguard",
+    "metaDescription": "Text is merged in-browser; clipboard and tab flow are transparent. Instagram, WhatsApp, YouTube and more.",
+    "navLogin": "Sign in"
+  },
+  "tools": {
+    "title": "Tools",
+    "clearData": "Clear local data",
+    "clearDataDone": "Local data reset",
+    "exportJson": "Export JSON",
+    "importJson": "Import JSON",
+    "importOk": "Pack imported",
+    "importFail": "Invalid JSON",
+    "showQr": "QR code",
+    "importCampaign": "Fill from quest",
+    "importCampaignLatest": "Latest quest",
+    "campaignOk": "Quest copied into the form",
+    "campaignFail": "Could not load quest",
+    "campaignLogin": "Sign in or use a quest parameter",
+    "debugEvents": "dataLayer events"
+  },
+  "charLimits": {
+    "title": "Length on selected channels",
+    "over": "{{label}}: may clip to ~{{limit}} chars (now {{current}})",
+    "ok": "Length looks OK for selected limited channels."
+  },
+  "templates": {
+    "title": "Templates",
+    "productLaunch": "Product launch",
+    "liveStream": "Live stream",
+    "applied": "Template applied"
+  },
+  "qr": {
+    "title": "QR — combined text",
+    "hint": "Scan with your phone camera; full text stays on clipboard too.",
+    "close": "Close",
+    "offline": "Internet required for QR."
+  },
+  "dragOrder": {
+    "hint": "Tab order: drag cards to reorder",
+    "reset": "Default order",
+    "resetDone": "Channel order reset"
+  },
+  "channelLabels": {
+    "x": "X",
+    "sm": "SMS",
+    "bs": "Bluesky",
+    "md": "Mastodon",
+    "tg": "Telegram",
+    "hn": "Hacker News"
+  },
+  "debug": {
+    "banner": "Share debug mode (?debug=share) — see [vanguard-share-debug] in console"
+  },
+  "batchStatus": {
+    "busy": "Batch share in progress…"
+  }
+}

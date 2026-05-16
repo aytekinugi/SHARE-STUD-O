@@ -1,0 +1,39 @@
+{
+  "name": "Vanguard AI",
+  "short_name": "Vanguard",
+  "start_url": "/dashboard",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Paylaşım merkezi",
+      "short_name": "Paylaş",
+      "description": "Çoklu kanal paylaşım stüdyosu",
+      "url": "/share"
+    },
+    {
+      "name": "Share hub",
+      "short_name": "Share",
+      "description": "Multi-channel share studio",
+      "url": "/share?lang=en"
+    }
+  ],
+  "share_target": {
+    "action": "/share",
+    "method": "GET",
+    "enctype": "application/x-www-form-urlencoded",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
+}
