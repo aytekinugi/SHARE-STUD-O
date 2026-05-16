@@ -1,0 +1,28 @@
+# Optional: set repository secrets VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID after `vercel link`.
+name: Deploy Vercel
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    if: ${{ secrets.VERCEL_TOKEN != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+      - name: Deploy to Vercel
+        run: npx vercel@latest deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
